@@ -1,0 +1,154 @@
+﻿<UserControl x:Class="WPF_Handover.IssueEditElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid Height="500" Width="1000">
+        <Border BorderBrush="Gray" BorderThickness="2">
+            <Grid Background="#FAFAFA" Grid.Row="1">
+                
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="50" Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <TextBlock Name="idTextBlock" 
+                   Grid.Row="0" 
+                   Grid.Column="4"
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   Text="HELLO"/>
+
+                <TextBox Grid.Column="0"
+                     Grid.Row="0"
+                     Grid.ColumnSpan="3"
+                     VerticalAlignment="Center" 
+                     FontSize="30"  
+                     x:Name="issueTextBox" 
+                     Margin="5,0,5,0" 
+                     Background="Transparent"
+                     BorderBrush="Transparent"/>
+                <TextBlock Grid.Column="0"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="3"
+                   Margin="7,0,0,0" 
+                   IsHitTestVisible="False" 
+                   Text="Enter Issue here" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Left" 
+                   Foreground="DarkGray" 
+                   FontSize="30">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=issueTextBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <TextBlock Grid.Column="0"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="4"
+                   Text="↳" 
+                   VerticalAlignment="Top" 
+                   FontSize="20" 
+                   TextWrapping="WrapWithOverflow"
+                   Margin="10,0,10,0"/>
+                <TextBox x:Name="logTextBox" 
+                    VerticalAlignment="Top" 
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="4" 
+                    FontSize="20" 
+                    Margin="30,0,5,0"  
+                    Height="400"
+                    TextWrapping="Wrap"
+                    AcceptsReturn="True"
+                         
+                    Background="Transparent"
+                    BorderBrush="Transparent"/>
+                <TextBlock Grid.Row="1" 
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="3"
+                   Margin="32,0,0,0" 
+                   IsHitTestVisible="False" 
+                   Text="Enter Log Here" 
+                   VerticalAlignment="Top" 
+                   HorizontalAlignment="Left" 
+                   Foreground="DarkGray" 
+                   FontSize="20">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=logTextBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+
+                <Button Name="cancelButton" 
+                    Content="Cancel"
+                    Grid.Row="3" 
+                    Grid.Column="0"  
+                    Margin="5,5,5,5" 
+                    FontSize="20" 
+                    Click="CloseSelf"/>
+
+                <Slider Name="severitySlider" 
+                    Grid.Row="2" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="1"
+                    Margin="5,5,5,5" 
+                    Maximum="10" 
+                    TickPlacement="BottomRight" 
+                    TickFrequency="1"
+                    IsSnapToTickEnabled="True" 
+                    ValueChanged="SliderValueChanged"/> 
+
+                <TextBlock Name="severityTextBlock" 
+                   Grid.Row="2" 
+                   Grid.Column="1"
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   Text="No Concern" 
+                   Margin="0,20,0,0"/>
+
+                <Button Name="duplicateButton" 
+                    Content="Duplicate"
+                    Grid.Row="3" 
+                    Grid.Column="2"  
+                    Margin="5,5,5,5" 
+                    FontSize="20" 
+                    Click="CloseSelf" />
+
+                <Button Name="submitButton" 
+                    Content="Update"
+                    Grid.Row="3" 
+                    Grid.Column="3"  
+                    Margin="5,5,5,5" 
+                    FontSize="20" 
+                    Click="UpdateDatabaseEntry" />
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>WPF_Handover</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Icons\eye.svg" />
+    <None Remove="Assets\Icons\gear.png" />
+    <None Remove="Assets\Icons\gear.svg" />
+    <None Remove="Assets\Icons\heart.svg" />
+    <None Remove="Assets\Icons\square-check.png" />
+    <None Remove="Assets\Icons\square-check.svg" />
+    <None Remove="Assets\Icons\square.png" />
+    <None Remove="Assets\Icons\square.svg" />
+    <None Remove="Assets\Icons\star-sharp.svg" />
+    <None Remove="Assets\Icons\trash-alt.svg" />
+    <None Remove="Assets\Icons\trash-list.svg" />
+    <None Remove="Assets\Icons\trash.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <Resource Include="Assets\Icons\gear.png" />
+	  <Resource Include="Assets\Icons\square-check.png" />
+	  <Resource Include="Assets\Icons\square.png" />
+	  <Resource Include="Assets\Icons\trash.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
+    <PackageReference Include="SharpVectors" Version="1.8.4.2" />
+  </ItemGroup>
+
+</Project>
